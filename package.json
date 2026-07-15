@@ -1,0 +1,26 @@
+{
+  "name": "1533-license-server",
+  "version": "3.0.0",
+  "private": true,
+  "description": "API, painel web, bot Discord e vendas automáticas Efí Pix para o 1533 Dumps.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch src/server.js",
+    "hash-password": "node scripts/hash-password.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "discord.js": "^14.22.1",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "undici": "^7.16.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

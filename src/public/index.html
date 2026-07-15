@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>1533 Licenças</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="loginView" class="centered">
+    <form id="loginForm" class="card login-card">
+      <div class="brand-mark">1533</div>
+      <h1>1533 Licenças</h1>
+      <p>Acesse o painel administrativo.</p>
+      <label>Usuário<input id="username" autocomplete="username" required></label>
+      <label>Senha<input id="password" type="password" autocomplete="current-password" required></label>
+      <button class="primary" type="submit">Entrar</button>
+      <span id="loginError" class="error"></span>
+    </form>
+  </div>
+
+  <div id="dashboardView" class="app hidden">
+    <aside>
+      <div class="logo"><strong>1533</strong><span>Licenças</span></div>
+      <nav><button class="nav active">Dashboard</button></nav>
+      <button id="logout" class="nav danger-text">Sair</button>
+    </aside>
+    <main>
+      <header><div><small>GERENCIAMENTO</small><h1>Licenças do 1533 Dumps</h1></div><button id="openCreate" class="primary">+ Gerar key</button></header>
+      <section class="stats">
+        <article><span>Total</span><strong id="statTotal">0</strong></article>
+        <article><span>Ativas</span><strong id="statActive">0</strong></article>
+        <article><span>Bloqueadas</span><strong id="statBlocked">0</strong></article>
+        <article><span>Vencidas</span><strong id="statExpired">0</strong></article>
+      </section>
+      <section class="card table-card">
+        <div class="toolbar"><input id="search" placeholder="Buscar cliente, ID ou final da key"><button id="refresh" class="secondary">Atualizar</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Cliente</th><th>Status</th><th>Vencimento</th><th>Ativações</th><th>Último acesso</th><th>Ações</th></tr></thead><tbody id="licenseRows"></tbody></table></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="createDialog">
+    <form id="createForm" class="modal-card">
+      <div class="modal-head"><h2>Gerar nova key</h2><button type="button" data-close class="icon">×</button></div>
+      <label>Cliente<input id="customer" required maxlength="100"></label>
+      <div class="grid2"><label>Dias<input id="days" type="number" value="30" min="1" max="3650" required></label><label>Computadores<input id="maxActivations" type="number" value="1" min="1" max="20" required></label></div>
+      <label>Plano<input id="plan" placeholder="Mensal"></label>
+      <label class="check"><input id="bindHwid" type="checkbox" checked> Vincular ao primeiro HWID ativado</label>
+      <label>Observações<textarea id="notes" rows="3"></textarea></label>
+      <button class="primary" type="submit">Gerar licença</button>
+    </form>
+  </dialog>
+
+  <dialog id="keyDialog">
+    <div class="modal-card">
+      <div class="modal-head"><h2>Key criada</h2><button type="button" data-close class="icon">×</button></div>
+      <p>Copie agora. Por segurança, a key completa não fica salva no painel.</p>
+      <code id="generatedKey" class="generated-key"></code>
+      <button id="copyKey" class="primary">Copiar key</button>
+    </div>
+  </dialog>
+  <script src="/app.js"></script>
+</body>
+</html>

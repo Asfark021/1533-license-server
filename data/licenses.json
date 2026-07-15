@@ -1,0 +1,28 @@
+{
+  "licenses": [],
+  "sales": [],
+  "bannedHwids": [],
+  "coupons": [],
+  "couponClaims": [],
+  "audit": [
+    {
+      "id": "9537ffcd-f46c-4878-89eb-26c2c3104773",
+      "action": "license.deleted",
+      "details": {
+        "licenseId": "99472630-ea80-43fb-9670-130291af395f"
+      },
+      "at": "2026-07-15T17:31:36.818Z"
+    },
+    {
+      "id": "bbd182d3-2e03-4abe-8277-3e296fcef13a",
+      "action": "license.created",
+      "details": {
+        "licenseId": "99472630-ea80-43fb-9670-130291af395f",
+        "customer": "asfark",
+        "source": "discord-panel",
+        "discordUserId": ""
+      },
+      "at": "2026-07-15T17:25:35.936Z"
+    }
+  ]
+}
