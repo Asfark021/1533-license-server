@@ -23,10 +23,16 @@ async function main() {
   const store = new JsonStore(process.env.DATA_FILE || 'data/licenses.json');
   await store.init();
 
-  const service = new LicenseService(store, {
-    privateKeyPath: process.env.LICENSE_PRIVATE_KEY_PATH || 'keys/private.pem',
-    offlineGraceHours: process.env.OFFLINE_GRACE_HOURS || 24
-  });
+  const privateKeyPath =
+  String(process.env.LICENSE_PRIVATE_KEY_PATH || '').trim() ||
+  path.resolve(process.cwd(), 'keys', 'private.pem');
+
+console.log(`[LICENSE] Caminho da chave privada: ${privateKeyPath}`);
+
+const service = new LicenseService(store, {
+  privateKeyPath,
+  offlineGraceHours: Number(process.env.OFFLINE_GRACE_HOURS || 24)
+});
 
   const efi = new EfiService({
     clientId: process.env.EFI_CLIENT_ID,
